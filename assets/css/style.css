@@ -1,0 +1,41 @@
+table.boxed {
+    border: 1px solid black;
+}
+td, th {
+    border: none;
+}
+table.feature_set {
+    border: 1px solid black;
+    border-spacing: 0px 0px;
+    text-align: center;
+}
+
+td.bordered {
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    text-align: center;
+}
+
+td.feature_set {
+    border-bottom: 1px solid black;
+    text-align: center;
+    width: 25px
+}
+
+td.progress_bar {
+    height: 15;
+}
+
+td.progress_bar_completed {
+    background-color: #00FF00;
+    border: 1px solid black;
+}
+
+td.ralign {
+    text-align: right;
+}
+
+progress {
+    width: 80;
+}

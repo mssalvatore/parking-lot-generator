@@ -1,0 +1,21 @@
+{
+    "name": "ParkingLot",
+    "description": "Creates a FDD ParkingLot Diagram",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mike Salvatore",
+            "email": "msalvatore@sevone.com"
+        }
+    ],
+     "autoload": {
+         "psr-4": { 
+             "ParkingLot\\": "src/"
+         },
+         "file": [
+             "src/Templates.php"
+         ]
+     },
+
+    "minimum-stability": "dev"
+}
