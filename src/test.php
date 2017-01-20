@@ -13,10 +13,14 @@ $features[] = new Features\Feature("Feature 3", "March 2017", false);
 
 $fs = new Features\FeatureSet("TestFeatureSet", $features, "MSS");
 
-$fa = new Features\FeatureArea("TestArea", array($fs));
+$features[] = new Features\Feature("Feature 4", "March 2017", true);
+$fs1 = new Features\FeatureSet("A TestFeature Set2", $features, "MSP");
+
+$fa = new Features\FeatureArea("TestArea2", array($fs, $fs1));
+$fa2 = new Features\FeatureArea("TestArea1", array($fs, $fs1));
 
 $renderer = new Renderers\HtmlRenderer();
-$renderedFa = $renderer->renderParkingLot(array($fa));
+$renderedFa = $renderer->renderParkingLot(array($fa, $fa2));
 echo $renderedFa;
 echo "\n";
 

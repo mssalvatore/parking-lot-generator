@@ -13,6 +13,7 @@ class HtmlRenderer extends Renderer
 
     public function renderParkingLot(array $inFeatureAreas)
     {
+        usort($inFeatureAreas, array($this, "compareFeatureAreas"));
         $row = $this->renderAreaRow($inFeatureAreas);
 
         return str_replace("%%FEATURE_AREA_ROWS%%", $this->renderAreaRow($inFeatureAreas), Templates::FRAME);
@@ -64,6 +65,10 @@ class HtmlRenderer extends Renderer
         $owner = str_replace("%%OWNER%%", $inFeatureSet->getOwner(), $owner);
 
         return $owner;
+    }
+
+    protected function compareFeatureAreas(FeatureArea $inLeft, FeatureArea $inRight) {
+        return strcmp($inLeft->getName(), $inRight->getName());
     }
 }
 
