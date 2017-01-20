@@ -54,7 +54,13 @@ const FEATURE_SET_TEMPLATE = <<<FST
                                         <td style="padding-left:%%PADDING_LEFT%%;padding-right:%%PADDING_RIGHT%%">
                                             <table class="feature_set">
                                                 <tr>
-                                                    <td class="feature_set" bgcolor="yellow">%%TITLE%%<br><br>(%%NUM_FEATURES%%)<br><br>%%PERCENT_COMPLETE%%%</td>
+                                                    <td class="feature_set %%BG_STYLE%%">
+                                                        <div class="td_feature_set">
+                                                            <div class="feature_set_name">%%TITLE%%</div>
+                                                            <div class="number_of_features">(%%NUM_FEATURES%%)</div>
+                                                            <div class="percent_complete">%%PERCENT_COMPLETE%%%</div>
+                                                        </div>
+                                                    </td>
                                                 </tr>
                                                 <tr>
                                                     <td>

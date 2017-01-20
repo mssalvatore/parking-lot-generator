@@ -9,6 +9,7 @@ class FeatureSet
     protected $mPercentCompleted;
     protected $mDueDate;
     protected $mOwner;
+    protected $mIsInProgress;
 
     public function __construct($inName, array $inFeatures, $inOwner)
     {
@@ -18,6 +19,7 @@ class FeatureSet
 
         $this->mPercentCompleted = $this->calculatePercentCompleted();
         $this->mDueDate = $this->calculateDueDate();
+        $this->mIsInProgress = $this->determineIfInProgress();
     }
 
     protected function calculatePercentCompleted()
@@ -31,6 +33,17 @@ class FeatureSet
         }
 
         return floor($completed/$total * 100);
+    }
+
+    protected function determineIfInProgress()
+    {
+        foreach ($this->mFeatures as $feature) {
+            if ($feature->isInProgress()) {
+                return true;
+            }
+        }
+
+        return $this->getPercentCompleted() > 0 && $this->getPercentCompleted() < 100;
     }
 
     protected function calculateDueDate()
@@ -61,6 +74,16 @@ class FeatureSet
     public function getNumberOfFeatures()
     {
         return count($this->mFeatures);
+    }
+
+    public function isCompleted()
+    {
+        return $this->getPercentCompleted() == 100;
+    }
+
+    public function isInProgress()
+    {
+        return $this->mIsInProgress;
     }
 }
 ?>

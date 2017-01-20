@@ -55,6 +55,16 @@ class HtmlRenderer extends Renderer
         $fs = str_replace("%%PERCENT_COMPLETE%%", $inFeatureSet->getPercentCompleted(), $fs);
         $fs = str_replace("%%DUE_DATE%%", $inFeatureSet->getDueDate(), $fs);
 
+        if ($inFeatureSet->isInProgress()) {
+            $fs = str_replace("%%BG_STYLE%%", "in_progress", $fs);
+        }
+        else if ($inFeatureSet->isCompleted()) {
+            $fs = str_replace("%%BG_STYLE%%", "completed", $fs);
+        }
+        else {
+            $fs = str_replace("%%BG_STYLE%%", "", $fs);
+        }
+
         return $fs;
     }
 
