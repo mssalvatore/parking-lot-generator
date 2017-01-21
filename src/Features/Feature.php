@@ -2,6 +2,8 @@
 
 namespace ParkingLot\Features;
 
+use \DateTime as DateTime;
+
 class Feature
 {
     protected $mName;
@@ -10,7 +12,7 @@ class Feature
     protected $mIsInProgress;
 
 
-    public function __construct($inName, $inDueDate, $inIsCompleted = false, $inIsInProgress = false)
+    public function __construct($inName, DateTime $inDueDate, $inIsCompleted = false, $inIsInProgress = false)
     {
         $this->mName = $inName;
         $this->mDueDate = $inDueDate;

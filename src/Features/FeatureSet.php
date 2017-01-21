@@ -18,7 +18,7 @@ class FeatureSet
         $this->mOwner = $inOwner;
 
         $this->mPercentCompleted = $this->calculatePercentCompleted();
-        $this->mDueDate = $this->calculateDueDate();
+        $this->mDueDate = $this->computeDueDate();
         $this->mIsInProgress = $this->determineIfInProgress();
     }
 
@@ -46,9 +46,18 @@ class FeatureSet
         return $this->getPercentCompleted() > 0 && $this->getPercentCompleted() < 100;
     }
 
-    protected function calculateDueDate()
+    protected function computeDueDate()
     {
-        return "Dec 2016";
+        $copiedFeatures = $this->mFeatures;
+        usort($copiedFeatures, function($inLeft, $inRight) {
+            if ($inLeft->getDueDate() == $inRight->getDueDate()) {
+                return 0;
+            }
+
+            return $inLeft->getDueDate() > $inRight->getDueDate() ? -1 : 1;
+        });
+
+        return $copiedFeatures[0]->getDueDate()->format('M') . " " . $copiedFeatures[0]->getDueDate()->format('Y');
     }
 
     public function getName()
