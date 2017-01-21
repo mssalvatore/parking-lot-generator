@@ -47,7 +47,7 @@ const FEATURE_AREA_TEMPLATE = <<<FAT
 FAT;
 
 const FEATURE_SET_OWNER_TEMPLATE = <<<FOT
-                                        <td style="padding-left:%%PADDING_LEFT%%;padding-right:%%PADDING_RIGHT%%" class="ralign">%%OWNER%%</td>
+                                        <td class="ralign owner">%%OWNER%%</td>
 FOT;
 
 const FEATURE_SET_TEMPLATE = <<<FST

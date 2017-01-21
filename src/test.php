@@ -4,10 +4,24 @@ namespace ParkingLot;
 
 use \DateTime as DateTime;
 
+
 error_reporting(E_ALL);
 
 require_once(__DIR__ . "/../vendor/autoload.php");
 
+
+$inputParser = new InputParser(__DIR__ . "/../config/FeatureSets.csv", __DIR__ . "/../config/features.csv");
+
+$featureAreas = $inputParser->getFeatureAreas();
+
+$renderer = new Renderers\HtmlRenderer();
+$renderedFa = $renderer->renderParkingLot($featureAreas);
+
+echo $renderedFa;
+echo "\n";
+
+
+/*
 $features = array();
 $features[] = new Features\Feature("Feature 1", new DateTime("Nov 2016"));
 $features[] = new Features\Feature("Feature 2", new DateTime("Dec 2016"), true);
@@ -39,5 +53,6 @@ $renderer = new Renderers\HtmlRenderer();
 $renderedFa = $renderer->renderParkingLot(array($fa));
 echo $renderedFa;
 echo "\n";
+*/
 
 ?>

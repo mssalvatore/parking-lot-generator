@@ -79,6 +79,11 @@ td.ralign {
     text-align: right;
 }
 
+td.owner {
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
 div.td_feature_set {
     overflow: hidden;
     width: 125px;
