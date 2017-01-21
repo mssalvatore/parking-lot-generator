@@ -2,6 +2,8 @@
 
 namespace ParkingLot\Renderers;
 
+use \DateTime as DateTime;
+
 use \ParkingLot\Features\FeatureSet as FeatureSet;
 use \ParkingLot\Features\FeatureArea as FeatureArea;
 use \ParkingLot\Templates as Templates;
@@ -53,6 +55,8 @@ class HtmlRenderer extends Renderer
 
     public function renderFeatureSet(FeatureSet $inFeatureSet, $inPaddingLeft = 0, $inPaddingRight = 0)
     {
+        $now = new DateTime();
+
         $fs = str_replace("%%PADDING_LEFT%%", $inPaddingLeft, Templates::FEATURE_SET_TEMPLATE);
         $fs = str_replace("%%PADDING_RIGHT%%", $inPaddingRight, $fs);
         $fs = str_replace("%%TITLE%%", $inFeatureSet->getName(), $fs);
@@ -60,14 +64,19 @@ class HtmlRenderer extends Renderer
         $fs = str_replace("%%PERCENT_COMPLETE%%", $inFeatureSet->getPercentCompleted(), $fs);
         $fs = str_replace("%%DUE_DATE%%", $inFeatureSet->getDueDate(), $fs);
 
-        if ($inFeatureSet->isInProgress()) {
-            $fs = str_replace("%%BG_STYLE%%", "in_progress", $fs);
-        }
-        else if ($inFeatureSet->isCompleted()) {
+        if ($inFeatureSet->isCompleted()) {
             $fs = str_replace("%%BG_STYLE%%", "completed", $fs);
         }
         else {
-            $fs = str_replace("%%BG_STYLE%%", "not_started", $fs);
+            if ($now > $inFeatureSet->getRawDueDate()) {
+                $fs = str_replace("%%BG_STYLE%%", "warning", $fs);
+            }
+            if ($inFeatureSet->isInProgress()) {
+                $fs = str_replace("%%BG_STYLE%%", "in_progress", $fs);
+            }
+            else {
+                $fs = str_replace("%%BG_STYLE%%", "not_started", $fs);
+            }
         }
 
         return $fs;

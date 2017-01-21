@@ -8,6 +8,7 @@ class FeatureSet
     protected $mFeatures;
     protected $mPercentCompleted;
     protected $mDueDate;
+    protected $mRawDueDate;
     protected $mOwner;
     protected $mIsInProgress;
 
@@ -18,7 +19,8 @@ class FeatureSet
         $this->mOwner = $inOwner;
 
         $this->mPercentCompleted = $this->calculatePercentCompleted();
-        $this->mDueDate = $this->computeDueDate();
+        $this->mRawDueDate = $this->computeDueDate();
+        $this->mDueDate = $this->mRawDueDate->format('M') . " " . $this->mRawDueDate->format('Y');
         $this->mIsInProgress = $this->determineIfInProgress();
     }
 
@@ -57,12 +59,17 @@ class FeatureSet
             return $inLeft->getDueDate() > $inRight->getDueDate() ? -1 : 1;
         });
 
-        return $copiedFeatures[0]->getDueDate()->format('M') . " " . $copiedFeatures[0]->getDueDate()->format('Y');
+        return $copiedFeatures[0]->getDueDate();
     }
 
     public function getName()
     {
         return $this->mName;
+    }
+
+    public function getRawDueDate()
+    {
+        return $this->mRawDueDate;
     }
 
     public function getDueDate()
