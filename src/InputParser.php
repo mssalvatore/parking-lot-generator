@@ -89,8 +89,9 @@ class InputParser
         foreach ($featureAssociations as $featureAreaName =>  $featureArea) {
             $featureSets = array();
             foreach ($featureArea as $featureSetName => $featureSet) {
-                if (array_key_exists($featureSetName, $this->mOwners)) {
-                    $owner = $this->mOwners[$featureSetName];
+                if (array_key_exists($featureAreaName, $this->mOwners) && 
+                    array_key_exists($featureSetName, $this->mOwners[$featureAreaName])) {
+                    $owner = $this->mOwners[$featureAreaName][$featureSetName];
                 }
                 else {
                     $owner = "";
@@ -109,7 +110,14 @@ class InputParser
         $csvData = $this->readCsv($inCsvFilePath);
         $owners = array();
         foreach ($csvData as $row) {
-            $owners[$row['Feature Set']] = $row['Owner'];
+            $featureArea = $row['Feature Area'];
+            $featureSet = $row['Feature Set'];
+            $owner = $row['Owner'];
+
+            if (!array_key_exists($featureArea, $owners)) {
+                $owners[$featureArea] = array();
+            }
+            $owners[$featureArea][$featureSet] = $row['Owner'];
         }
 
         return $owners;
