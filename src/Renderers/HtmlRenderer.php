@@ -62,7 +62,7 @@ class HtmlRenderer extends Renderer
             $fs = str_replace("%%BG_STYLE%%", "completed", $fs);
         }
         else {
-            $fs = str_replace("%%BG_STYLE%%", "", $fs);
+            $fs = str_replace("%%BG_STYLE%%", "not_started", $fs);
         }
 
         return $fs;

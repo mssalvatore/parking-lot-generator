@@ -1,19 +1,33 @@
+html {
+  background-color: #DCE0E8;
+  font-family: "Lucida Console", Monaco, monospace;
+}
 table.boxed {
     border: 1px solid black;
+	margin: 5 5 5 5;
 }
 td, th {
     border: none;
     text-align: center;
     word-wrap: break-word;
 }
+
+th.feature_area {
+    border: none;
+    text-align: center;
+    word-wrap: break-word;
+	background-color: #474747;
+	color: #FFFFFF;
+}
 table.feature_set {
     border: 1px solid black;
     border-spacing: 0px 0px;
+	margin: 0 5 0 5;
     text-align: center;
-    min-width: 95px;
-    max-width: 95px;
-    min-height: 156px;
-    max-height: 156px;
+    min-width: 125px;
+    max-width: 125px;
+    min-height: 175px;
+    max-height: 175px;
     table-layout:fixed;
 }
 
@@ -42,6 +56,14 @@ td.completed {
     background-color: #3DFC3A
 }
 
+td.not_started {
+    background-color: #FFFFFF;
+}
+
+td.progress_date {
+    background-color: #FFFFFF;
+}
+
 td.warning {
     background-color: #FF0000;
 }
@@ -57,8 +79,8 @@ td.ralign {
 
 div.td_feature_set {
     overflow: hidden;
-    height: 125px;
-    width: 100px;
+    width: 125px;
+    height: 175px;
 }
 
 div.feature_set_name {

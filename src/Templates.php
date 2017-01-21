@@ -28,7 +28,7 @@ const FEATURE_AREA_TEMPLATE = <<<FAT
                 <td>
                     <table class=boxed style="width:%%WIDTH%%">
                         <tr>
-                            <th>%%TITLE%%</th>
+                            <th class="feature_area">%%TITLE%%</th>
                         </tr>
                         <tr>
                             <td>
@@ -63,12 +63,12 @@ const FEATURE_SET_TEMPLATE = <<<FST
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td>
+                                                    <td class="progress_date">
                                                         <progress value="%%PERCENT_COMPLETE%%" max="100"></progress>
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td>%%DUE_DATE%%</td>
+                                                    <td class="progress_date">%%DUE_DATE%%</td>
                                                 </tr>
                                             </table>
                                         </td>
