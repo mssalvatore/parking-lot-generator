@@ -9,14 +9,19 @@ use \ParkingLot\Templates as Templates;
 class HtmlRenderer extends Renderer
 {
     const FS_WIDTH = 125;
+    const BIN_SIZE = 9;
 
 
     public function renderParkingLot(array $inFeatureAreas)
     {
         usort($inFeatureAreas, array($this, "compareFeatureAreas"));
-        $row = $this->renderAreaRow($inFeatureAreas);
+        $rows = $this->packRows($inFeatureAreas);
+        $html = "";
+        foreach ($rows as $row) {
+            $html .= $this->renderAreaRow($row);
+        }
 
-        return str_replace("%%FEATURE_AREA_ROWS%%", $this->renderAreaRow($inFeatureAreas), Templates::FRAME);
+        return str_replace("%%FEATURE_AREA_ROWS%%", $html, Templates::FRAME);
     }
 
     protected function renderAreaRow(array $inFeatureAreas)
@@ -77,8 +82,49 @@ class HtmlRenderer extends Renderer
         return $owner;
     }
 
+    protected function packRows($inFeatureAreas)
+    {
+        $bins = array();
+
+        foreach($inFeatureAreas as $area)
+        {
+            $placed = false;
+            foreach ($bins as &$bin)
+            {
+                if ($this->sumBin($bin) + $area->getNumberOfFeatureSets() <= self::BIN_SIZE) {
+                    $bin[] = $area;
+                    $placed = true;
+                    break;
+                }
+            }
+            if (!$placed) {
+                $bins[] = array($area);
+            }
+        }
+
+        return $bins;
+    }
+
+    protected function sumBin(array $inBin)
+    {
+        $sum = 0;
+        foreach ($inBin as $featureArea)
+        {
+            $sum += $featureArea->getNumberOfFeatureSets();
+        }
+
+        return $sum;
+    }
+
     protected function compareFeatureAreas(FeatureArea $inLeft, FeatureArea $inRight) {
-        return strcmp($inLeft->getName(), $inRight->getName());
+        $leftSets = $inLeft->getNumberOfFeatureSets();
+        $rightSets = $inRight->getNumberOfFeatureSets();
+
+        if ($leftSets == $rightSets) {
+            return 0;
+        }
+
+        return $leftSets > $rightSets ? -1 : 1;
     }
 }
 
