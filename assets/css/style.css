@@ -26,8 +26,8 @@ table.feature_set {
     text-align: center;
     min-width: 125px;
     max-width: 125px;
-    min-height: 175px;
-    max-height: 175px;
+    min-height: 150px;
+    max-height: 150px;
     table-layout:fixed;
 }
 
@@ -80,15 +80,17 @@ td.ralign {
 div.td_feature_set {
     overflow: hidden;
     width: 125px;
-    height: 175px;
+    height: 150px;
 }
 
 div.feature_set_name {
     height: 50%;
+	font-size: 14px;
 }
 
 div.number_of_features {
     height: 35%;
+	font-weight: bold;
 }
 
 div.percent_complete {
