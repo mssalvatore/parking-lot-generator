@@ -5,6 +5,7 @@ html {
 table.boxed {
     border: 1px solid black;
 	margin: 5 5 5 5;
+	background-color: #F0EAD6;
 }
 td, th {
     border: none;
@@ -22,13 +23,14 @@ th.feature_area {
 table.feature_set {
     border: 1px solid black;
     border-spacing: 0px 0px;
-	margin: 0 5 0 5;
+	margin: 15 15 15 15;
     text-align: center;
     min-width: 125px;
     max-width: 125px;
     min-height: 150px;
     max-height: 150px;
     table-layout:fixed;
+	box-shadow: -5px -5px grey;
 }
 
 td.bordered {
@@ -57,7 +59,7 @@ td.completed {
 }
 
 td.not_started {
-    background-color: #FFFFFF;
+    background-color: #FFFFFF
 }
 
 td.progress_date {
