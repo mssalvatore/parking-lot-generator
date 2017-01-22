@@ -26,7 +26,7 @@ th.feature_area {
     border: none;
     text-align: center;
     word-wrap: break-word;
-	background-color: #474747;
+	background-color: #3C3B3B;
 	color: #FFFFFF;
 }
 table.feature_set {
@@ -60,11 +60,11 @@ td.progress_bar {
 }
 
 td.in_progress {
-    background-color: #8EDDFF;
+    background-color: #209EC3;
 }
 
 td.completed {
-    background-color: #3DFC3A
+    background-color: #92CB05
 }
 
 td.not_started {
@@ -76,7 +76,7 @@ td.progress_date {
 }
 
 td.warning {
-    background-color: #FF0000;
+    background-color: #FF4033;
 }
 
 td.progress_bar_completed {

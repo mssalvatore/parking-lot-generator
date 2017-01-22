@@ -11,7 +11,7 @@ use \ParkingLot\Templates as Templates;
 class HtmlRenderer extends Renderer
 {
     const FS_WIDTH = 125;
-    const BIN_SIZE = 9;
+    const BIN_SIZE = 12;
 
 
     public function renderParkingLot(array $inFeatureAreas)
