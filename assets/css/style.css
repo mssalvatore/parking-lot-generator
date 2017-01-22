@@ -7,7 +7,16 @@ table.boxed {
 	margin: 5 5 5 5;
 	background-color: #F0EAD6;
 }
+
+table.feature_area {
+    border: 1px solid black;
+	margin: 5 5 5 5;
+	background-color: #F0EAD6;
+	min-height: 280px;
+}
+
 td, th {
+
     border: none;
     text-align: center;
     word-wrap: break-word;

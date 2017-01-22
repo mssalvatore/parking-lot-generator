@@ -26,7 +26,7 @@ FAR;
 
 const FEATURE_AREA_TEMPLATE = <<<FAT
                 <td>
-                    <table class=boxed style="width:%%WIDTH%%">
+                    <table class="boxed feature_area" style="width:%%WIDTH%%">
                         <tr>
                             <th class="feature_area">%%TITLE%%</th>
                         </tr>
