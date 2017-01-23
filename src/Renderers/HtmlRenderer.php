@@ -11,12 +11,20 @@ use \ParkingLot\Templates as Templates;
 class HtmlRenderer extends Renderer
 {
     const FS_WIDTH = 125;
-    const BIN_SIZE = 12;
+    protected $mBinSize;
+
+    public function __construct()
+    {
+        $this->mBinSize = 12;
+    }
 
 
     public function renderParkingLot(array $inFeatureAreas)
     {
         usort($inFeatureAreas, array($this, "compareFeatureAreas"));
+
+        $this->resizeBins($inFeatureAreas);
+
         $rows = $this->packRows($inFeatureAreas);
         $html = "";
         foreach ($rows as $row) {
@@ -24,6 +32,24 @@ class HtmlRenderer extends Renderer
         }
 
         return str_replace("%%FEATURE_AREA_ROWS%%", $html, Templates::FRAME);
+    }
+
+    protected function compareFeatureAreas(FeatureArea $inLeft, FeatureArea $inRight) {
+        $leftSets = $inLeft->getNumberOfFeatureSets();
+        $rightSets = $inRight->getNumberOfFeatureSets();
+
+        if ($leftSets == $rightSets) {
+            return 0;
+        }
+
+        return $leftSets > $rightSets ? -1 : 1;
+    }
+
+    protected function resizeBins(array $inFeatureAreas)
+    {
+        if (count($inFeatureAreas[0]->getFeatureSets()) > $this->mBinSize) {
+            $this->mBinSize = count($inFeatureAreas[0]->getFeatureSets());
+        }
     }
 
     protected function renderAreaRow(array $inFeatureAreas)
@@ -100,7 +126,7 @@ class HtmlRenderer extends Renderer
             $placed = false;
             foreach ($bins as &$bin)
             {
-                if ($this->sumBin($bin) + $area->getNumberOfFeatureSets() <= self::BIN_SIZE) {
+                if ($this->sumBin($bin) + $area->getNumberOfFeatureSets() <= $this->mBinSize) {
                     $bin[] = $area;
                     $placed = true;
                     break;
@@ -123,17 +149,6 @@ class HtmlRenderer extends Renderer
         }
 
         return $sum;
-    }
-
-    protected function compareFeatureAreas(FeatureArea $inLeft, FeatureArea $inRight) {
-        $leftSets = $inLeft->getNumberOfFeatureSets();
-        $rightSets = $inRight->getNumberOfFeatureSets();
-
-        if ($leftSets == $rightSets) {
-            return 0;
-        }
-
-        return $leftSets > $rightSets ? -1 : 1;
     }
 }
 
