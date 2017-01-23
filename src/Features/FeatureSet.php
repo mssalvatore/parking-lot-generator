@@ -87,6 +87,10 @@ class FeatureSet
         return $this->mOwner;
     }
 
+    public function getFeatures()
+    {
+        return $this->mFeatures;
+    }
     public function getNumberOfFeatures()
     {
         return count($this->mFeatures);
