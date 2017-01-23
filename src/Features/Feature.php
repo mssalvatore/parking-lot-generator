@@ -4,6 +4,8 @@ namespace ParkingLot\Features;
 
 use \DateTime as DateTime;
 
+use ParkingLot\Exceptions\InvalidFeatureException as InvalidFeatureException;
+
 class Feature
 {
     protected $mName;
@@ -14,6 +16,11 @@ class Feature
 
     public function __construct($inName, DateTime $inDueDate, $inIsCompleted = false, $inIsInProgress = false)
     {
+        if (empty($inName))
+        {
+            throw new InvalidFeatureException("A Feature may not have an empty (blank) name");
+        }
+
         $this->mName = $inName;
         $this->mDueDate = $inDueDate;
         $this->mIsCompleted = $inIsCompleted;

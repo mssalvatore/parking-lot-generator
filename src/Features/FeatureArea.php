@@ -2,6 +2,8 @@
 
 namespace ParkingLot\Features;
 
+use ParkingLot\Exceptions\InvalidFeatureAreaException as InvalidFeatureAreaException;
+
 class FeatureArea
 {
     protected $mName;
@@ -9,6 +11,16 @@ class FeatureArea
 
     public function __construct($inName, array $inFeatureSets)
     {
+        if (empty($inName))
+        {
+            throw new InvalidFeatureAreaException("A Feature Area may not have an empty (blank) name");
+        }
+
+        if (empty($inFeatureSets))
+        {
+            throw new InvalidFeatureAreaException("A Feature Area must have at least one Feature Set");
+        }
+
         $this->mName = $inName;
         $this->mFeatureSets = $inFeatureSets;
     }

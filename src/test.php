@@ -42,9 +42,13 @@ function featureAreasToJson($inFeatureAreas)
     echo "}";
 }
 
-$inputParser = new InputParser(__DIR__ . "/../config/features.json");
+try {
+    $featureAreas = InputParser::getFeatureAreas(__DIR__ . "/../config/features.json");
+} catch (\Exception $ex) {
+    echo "An exception was thrown while attempting to parse input: {$ex->getMessage()}\n";
+    exit(1);
+}
 
-$featureAreas = $inputParser->getFeatureAreas();
 
 $renderer = new Renderers\HtmlRenderer();
 $renderedFa = $renderer->renderParkingLot($featureAreas);

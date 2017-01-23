@@ -4,7 +4,7 @@ namespace ParkingLot;
 
 use \DateTime as DateTime;
 
-use ParkingLot\Exceptions\InvalidCsvInputException as InvalidCsvInputException;
+use ParkingLot\Exceptions\InvalidFeatureException as InvalidFeatureException;
 
 use ParkingLot\Features\Feature as Feature;
 use ParkingLot\Features\FeatureSet as FeatureSet;
@@ -12,15 +12,7 @@ use ParkingLot\Features\FeatureArea as FeatureArea;
 
 class InputParser
 {
-    protected $mFeatureAreas;
-    protected $mOwners;
-    
-    public function __construct($inFeatureAreasJsonPath)
-    {
-        $this->mFeatureAreas = $this->decodeFeatureAreasJson($inFeatureAreasJsonPath);
-    }
-
-    protected function decodeFeatureAreasJson($inFeatureAreasJsonPath)
+    protected static function decodeFeatureAreasJson($inFeatureAreasJsonPath)
     {
         $featureAreasJson = file_get_contents($inFeatureAreasJsonPath);
 
@@ -30,15 +22,15 @@ class InputParser
             throw new \Exception("Failed to read file: $inFeatureAreasJsonPath");
         }
 
-        return $this->buildFeatureAreasFromDecodedJson($featureAreasDecoded);
+        return static::buildFeatureAreasFromDecodedJson($featureAreasDecoded);
     }
 
-    protected function buildFeatureAreasFromDecodedJson($inFeatureAreasDecoded)
+    protected static function buildFeatureAreasFromDecodedJson($inFeatureAreasDecoded)
     {
         $featureAreas = array();
         foreach ($inFeatureAreasDecoded['featureAreas'] as $featureArea) {
             $featureAreaName = $featureArea['name'];
-            $featureSets = $this->buildFeatureSetsFromDecodedJson($featureArea['featureSets']);
+            $featureSets = static::buildFeatureSetsFromDecodedJson($featureArea['featureSets']);
 
             $featureAreas[] = new FeatureArea($featureAreaName, $featureSets);
         }
@@ -46,13 +38,13 @@ class InputParser
         return $featureAreas;
     }
 
-    protected function buildFeatureSetsFromDecodedJson($inFeatureSets)
+    protected static function buildFeatureSetsFromDecodedJson($inFeatureSets)
     {
         $featureSets = array();
         foreach ($inFeatureSets as $featureSet) {
             $featureSetName = $featureSet['name'];
             $featureSetOwner = $featureSet['owner'];
-            $features = $this->buildFeaturesFromDecodedJson($featureSet['features']);
+            $features = static::buildFeaturesFromDecodedJson($featureSet['features']);
 
             $featureSets[] = new FeatureSet($featureSetName, $features, $featureSetOwner);
         }
@@ -60,10 +52,14 @@ class InputParser
         return $featureSets;
     }
 
-    protected function buildFeaturesFromDecodedJson($inFeatures)
+    protected static function buildFeaturesFromDecodedJson($inFeatures)
     {
         $features = array();
         foreach ($inFeatures as $feature) {
+
+            if (empty($feature['dueDate'])) {
+                throw new InvalidFeatureException("Due date my not be empty");
+            }
             $featureName = $feature['name'];
             $dueDate = new DateTime($feature['dueDate']);
             $status = $feature['status'];
@@ -76,25 +72,8 @@ class InputParser
         return $features;
     }
 
-
-public function getFeatureAreas()
-{
-    return $this->mFeatureAreas;
-}
-
-protected function validateFeatureRow(array $inRow)
-{
-    if (empty($inRow['Feature Area'])) {
-        throw new InvalidCsvInputException("Row may not contain empty Feature Area");
+    public static function getFeatureAreas($inFeatureAreasJsonPath)
+    {
+        return static::decodeFeatureAreasJson($inFeatureAreasJsonPath);
     }
-    if (empty($inRow['Feature Set'])) {
-        throw new InvalidCsvInputException("Row may not contain empty Feature Set");
-    }
-    if (empty($inRow['Feature'])) {
-        throw new InvalidCsvInputException("Row may not contain empty Feature");
-    }
-    if (empty($inRow['Due Date'])) {
-        throw new InvalidCsvInputException("Row may not contain empty Due Date");
-    }
-}
 }
