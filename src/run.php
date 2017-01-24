@@ -23,6 +23,7 @@ function printUsage($inErrorMessage = NULL)
     echo "Options:\n";
     echo "  -h --help                           Show Help\n";
     echo "  --version                           Show the version and git commit of this build\n";
+    echo "  --project-name                      The name of the project\n";
     echo "  --input                             The input json file\n";
     echo "  --output                            Optional output file (default: './parking_lot.html')\n";
     echo "\n";
@@ -37,18 +38,19 @@ function printVersion()
     echo "\nVersion:\n\t$version\n";
 }
 
-$options = getopt("h", array("help", "version", "input:", "output:"));
+$options = getopt("h", array("help", "version", "project-name:", "input:", "output:"));
 
 if (array_key_exists("version", $options)) {
     printVersion();
     exit();
 }
 
-if (array_key_exists("h", $options) || array_key_exists("help", $options) || !array_key_exists("input", $options)) {
+if (array_key_exists("h", $options) || array_key_exists("help", $options) || !array_key_exists("input", $options) || !array_key_exists("project-name", $options)) {
     printUsage();
     exit();
 }
 
+$projectName = $options["project-name"];
 $inputFile = $options["input"];
 $outputFile = "./parking_lot.html";
 
@@ -65,7 +67,7 @@ try {
 
 
 $renderer = new Renderers\HtmlRenderer();
-$renderedHtml = $renderer->renderParkingLot($featureAreas);
+$renderedHtml = $renderer->renderParkingLot($projectName, $featureAreas);
 
 $success = file_put_contents($outputFile, $renderedHtml);
 

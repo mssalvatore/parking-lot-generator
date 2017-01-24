@@ -18,20 +18,22 @@ class HtmlRenderer extends Renderer
         $this->mBinSize = 11;
     }
 
-
-    public function renderParkingLot(array $inFeatureAreas)
+    public function renderParkingLot($inProjectName, array $inFeatureAreas)
     {
         usort($inFeatureAreas, array($this, "compareFeatureAreas"));
 
         $this->resizeBins($inFeatureAreas);
 
         $rows = $this->packRows($inFeatureAreas);
-        $html = "";
+        $areaRows = "";
         foreach ($rows as $row) {
-            $html .= $this->renderAreaRow($row);
+            $areaRows .= $this->renderAreaRow($row);
         }
 
-        return str_replace("%%FEATURE_AREA_ROWS%%", $html, Templates::FRAME);
+        $html = str_replace("%%PROJECT_NAME%%", $inProjectName, Templates::FRAME);
+        $html = str_replace("%%TIME%%", date('H:i \o\n m/d/Y'), $html);
+
+        return str_replace("%%FEATURE_AREA_ROWS%%", $areaRows, $html);
     }
 
     protected function compareFeatureAreas(FeatureArea $inLeft, FeatureArea $inRight) {

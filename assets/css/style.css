@@ -2,6 +2,16 @@ html {
   background-color: #DCE0E8;
   font-family: "OpenSans";
 }
+header.title {
+    text-align: center;
+    font-size: 3em;
+    font-weight: bold;
+}
+header.time {
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+}
 table {
 	border-collapse: collapse;
 	border-spacing: 0;

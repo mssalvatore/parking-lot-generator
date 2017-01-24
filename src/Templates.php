@@ -11,6 +11,9 @@ const FRAME = <<<FRAME
         <link rel="stylesheet" type="text/css" href="./style.css">
     </head>
     <body>
+        <header class="title">%%PROJECT_NAME%% Parking Lot Diagram</header>
+        <header class="time">Generated: %%TIME%%</header>
+        <br/>
         %%FEATURE_AREA_ROWS%%
     </body>
 </html>
