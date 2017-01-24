@@ -1,5 +1,5 @@
 {
-    "name": "ParkingLot",
+    "name": "ParkingLotGenerator",
     "description": "Creates a FDD ParkingLot Diagram",
     "license": "MIT",
     "authors": [
