@@ -1,0 +1,10 @@
+{
+    "directories": ["src", "vendor"],
+    "files": ["version.txt"],
+    "main": "src/run.php",
+    "output": "bin/ParkingLotGenerator.phar",
+    "chmod": "0755",
+    "git-tag": "gittag",
+    "git-commit": "gitcommit",
+    "stub": true
+}
