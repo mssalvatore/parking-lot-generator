@@ -43,7 +43,7 @@ function featureAreasToJson($inFeatureAreas)
 }
 
 try {
-    $featureAreas = InputParser::getFeatureAreas(__DIR__ . "/../config/features.json");
+    $featureAreas = InputParser::getFeatureAreas(__DIR__ . "/../config/jira.json");
 } catch (\Exception $ex) {
     echo "An exception was thrown while attempting to parse input: {$ex->getMessage()}\n";
     exit(1);

@@ -15,7 +15,7 @@ class HtmlRenderer extends Renderer
 
     public function __construct()
     {
-        $this->mBinSize = 12;
+        $this->mBinSize = 11;
     }
 
 

@@ -5,6 +5,7 @@ html {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
+	margin: auto;
 }
 table.boxed {
     border: 2px solid black;
@@ -29,9 +30,9 @@ td, th {
 th.feature_area {
     border: none;
     text-align: center;
-    word-wrap: break-word;
 	background-color: #3C3B3B;
 	color: #FFFFFF;
+	white-space: nowrap;
 }
 table.feature_set {
     border: 2px solid black;
