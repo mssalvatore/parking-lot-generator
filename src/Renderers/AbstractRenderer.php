@@ -5,7 +5,7 @@ namespace ParkingLot\Renderers;
 use \ParkingLot\Features\FeatureSet as FeatureSet;
 use \ParkingLot\Features\FeatureArea as FeatureArea;
 
-abstract class Renderer
+abstract class AbstractRenderer
 {
     abstract public function renderParkingLot($inProjectName, array $inFeatureAreas);
     abstract public function renderFeatureArea(FeatureArea $inFeatureArea);

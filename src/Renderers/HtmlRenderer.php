@@ -8,7 +8,7 @@ use \ParkingLot\Features\FeatureSet as FeatureSet;
 use \ParkingLot\Features\FeatureArea as FeatureArea;
 use \ParkingLot\Templates as Templates;
 
-class HtmlRenderer extends Renderer
+class HtmlRenderer extends AbstractRenderer
 {
     const FS_WIDTH = 125;
     protected $mBinSize;
