@@ -83,8 +83,6 @@ class HtmlRenderer extends Renderer
 
     public function renderFeatureSet(FeatureSet $inFeatureSet, $inPaddingLeft = 0, $inPaddingRight = 0)
     {
-        $now = new DateTime();
-
         $fs = str_replace("%%PADDING_LEFT%%", $inPaddingLeft, Templates::FEATURE_SET_TEMPLATE);
         $fs = str_replace("%%PADDING_RIGHT%%", $inPaddingRight, $fs);
         $fs = str_replace("%%TITLE%%", $inFeatureSet->getName(), $fs);
@@ -92,22 +90,29 @@ class HtmlRenderer extends Renderer
         $fs = str_replace("%%PERCENT_COMPLETE%%", $inFeatureSet->getPercentCompleted(), $fs);
         $fs = str_replace("%%DUE_DATE%%", $inFeatureSet->getDueDate(), $fs);
 
-        if ($inFeatureSet->isCompleted()) {
-            $fs = str_replace("%%BG_STYLE%%", "completed", $fs);
-        }
-        else {
-            if ($now > $inFeatureSet->getRawDueDate()) {
-                $fs = str_replace("%%BG_STYLE%%", "warning", $fs);
-            }
-            if ($inFeatureSet->isInProgress()) {
-                $fs = str_replace("%%BG_STYLE%%", "in_progress", $fs);
-            }
-            else {
-                $fs = str_replace("%%BG_STYLE%%", "not_started", $fs);
-            }
-        }
+        $backgroundStyle = $this->determineFeatureSetBackgroundStyle($inFeatureSet);
+        $fs = str_replace("%%BG_STYLE%%", $backgroundStyle, $fs);
 
         return $fs;
+    }
+
+    protected function determineFeatureSetBackgroundStyle($inFeatureSet)
+    {
+        $now = new DateTime();
+
+        if ($inFeatureSet->isCompleted()) {
+            return "completed";
+        }
+
+        if ($now > $inFeatureSet->getRawDueDate()) {
+            return "warning";
+        }
+
+        if ($inFeatureSet->isInProgress()) {
+            return "in_progress";
+        }
+
+        return "not_started";
     }
 
     public function renderFeatureOwner(FeatureSet $inFeatureSet, $inPaddingLeft = 0, $inPaddingRight = 0)
