@@ -16,9 +16,9 @@ function printUsage($inErrorMessage = NULL)
     echo "  Generates a Parking Lot diagram from an input CSV.\n";
     echo "\n";
     echo "Usage:\n";
-    echo "  php JiraCsvToJson.phar -h | --help\n";
-    echo "  php JiraCsvToJson.phar --version\n";
-    echo "  php JiraCsvToJson.phar --input <file path> [--output <file_path>]\n";
+    echo "  php ParkingLotGenerator.phar -h | --help\n";
+    echo "  php ParkingLotGenerator.phar --version\n";
+    echo "  php ParkingLotGenerator.phar --input <file path> [--output <file_path>]\n";
     echo "\n";
     echo "Options:\n";
     echo "  -h --help                           Show Help\n";
