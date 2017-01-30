@@ -2,7 +2,7 @@ SOURCE_DIR = bin
     
 all: | make_bin box 
     
-box: 
+box:  | make_bin
 	box build
     
 clean:
