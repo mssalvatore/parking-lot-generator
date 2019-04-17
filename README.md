@@ -96,5 +96,6 @@ You will need to copy assets/css/style.css to the same destination directory as 
     * No attempt has been made to ensure a consistent look and feel across different browsers.
 * The style.css must be manually copied to the destination directory.
 * While there is some input validation, it's not as robust as it could be. The input config file could be better validated.
+    * <span style="color:red">WARNING</span>: The Parking Lot Generator is currently vulnerable to XSS and other attacks as the input file is assumed to be trusted.
 * There are currently no application level configuration options (e.g. the report title and "Generated" message are not configurable)
 * This documentation is a little sparse. In between now and when I can fill it out, feel free to contact me with any questions.
