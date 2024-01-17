@@ -12,10 +12,10 @@ This documentation is a little sparse. In between now and when I can fill it
 out, feel free to contact me with any questions.
 
 ## Dependencies
-This application is packaged with <a
-href="https://getcomposer.org/doc/00-intro.md" target="_blank">Composer</a> and
-built using <a href="https://github.com/box-project/box2"
-target="_blank">Box</a>. The Makefile assumes that the box executible is in your
+This application's dependencies are managed by <a
+href="https://getcomposer.org/doc/00-intro.md" target="_blank">Composer</a>. It
+is built using <a href="https://github.com/box-project/box2"
+target="_blank">Box</a>. The Makefile assumes that the box executable is in your
 path
 
 ## Parking Lot Diagram
