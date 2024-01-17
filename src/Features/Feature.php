@@ -14,17 +14,17 @@ class Feature
     protected $mIsInProgress;
 
 
-    public function __construct($inName, DateTime $inDueDate, $inIsCompleted = false, $inIsInProgress = false)
+    public function __construct($name, DateTime $dueDate, $isCompleted = false, $isInProgress = false)
     {
-        if (empty($inName))
+        if (empty($name))
         {
             throw new InvalidFeatureException("A Feature may not have an empty (blank) name");
         }
 
-        $this->mName = $inName;
-        $this->mDueDate = $inDueDate;
-        $this->mIsCompleted = $inIsCompleted;
-        $this->mIsInProgress = $inIsInProgress;
+        $this->mName = $name;
+        $this->mDueDate = $dueDate;
+        $this->mIsCompleted = $isCompleted;
+        $this->mIsInProgress = $isInProgress;
     }
 
     public function getName()

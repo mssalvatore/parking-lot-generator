@@ -18,27 +18,27 @@ class HtmlRenderer extends AbstractRenderer
         $this->mBinSize = 11;
     }
 
-    public function renderParkingLot($inProjectName, array $inFeatureAreas)
+    public function renderParkingLot($projectName, array $featureAreas)
     {
-        usort($inFeatureAreas, array($this, "compareFeatureAreas"));
+        usort($featureAreas, array($this, "compareFeatureAreas"));
 
-        $this->resizeBins($inFeatureAreas);
+        $this->resizeBins($featureAreas);
 
-        $rows = $this->packRows($inFeatureAreas);
+        $rows = $this->packRows($featureAreas);
         $areaRows = "";
         foreach ($rows as $row) {
             $areaRows .= $this->renderAreaRow($row);
         }
 
-        $html = str_replace("%%PROJECT_NAME%%", $inProjectName, Templates::FRAME);
+        $html = str_replace("%%PROJECT_NAME%%", $projectName, Templates::FRAME);
         $html = str_replace("%%TIME%%", date('H:i \o\n m/d/Y'), $html);
 
         return str_replace("%%FEATURE_AREA_ROWS%%", $areaRows, $html);
     }
 
-    protected function compareFeatureAreas(FeatureArea $inLeft, FeatureArea $inRight) {
-        $leftSets = $inLeft->getNumberOfFeatureSets();
-        $rightSets = $inRight->getNumberOfFeatureSets();
+    protected function compareFeatureAreas(FeatureArea $left, FeatureArea $right) {
+        $leftSets = $left->getNumberOfFeatureSets();
+        $rightSets = $right->getNumberOfFeatureSets();
 
         if ($leftSets == $rightSets) {
             return 0;
@@ -47,88 +47,88 @@ class HtmlRenderer extends AbstractRenderer
         return $leftSets > $rightSets ? -1 : 1;
     }
 
-    protected function resizeBins(array $inFeatureAreas)
+    protected function resizeBins(array $featureAreas)
     {
-        if (count($inFeatureAreas[0]->getFeatureSets()) > $this->mBinSize) {
-            $this->mBinSize = count($inFeatureAreas[0]->getFeatureSets());
+        if (count($featureAreas[0]->getFeatureSets()) > $this->mBinSize) {
+            $this->mBinSize = count($featureAreas[0]->getFeatureSets());
         }
     }
 
-    protected function renderAreaRow(array $inFeatureAreas)
+    protected function renderAreaRow(array $featureAreas)
     {
-        $featureAreas = "\n";
-        foreach ($inFeatureAreas as $featureArea) {
-            $featureAreas .= $this->renderFeatureArea($featureArea);
+        $renderedFeatureAreas = "\n";
+        foreach ($featureAreas as $featureArea) {
+            $renderedFeatureAreas .= $this->renderFeatureArea($featureArea);
         }
 
-        return str_replace("%%FEATURE_AREAS%%", $featureAreas, Templates::FEATURE_AREA_ROW_TEMPLATE);
+        return str_replace("%%FEATURE_AREAS%%", $renderedFeatureAreas, Templates::FEATURE_AREA_ROW_TEMPLATE);
     }
 
-    public function renderFeatureArea(FeatureArea $inFeatureArea)
+    public function renderFeatureArea(FeatureArea $featureArea)
     {
         $featureOwners = "\n";
         $featureSets = "\n";
-        foreach ($inFeatureArea->getFeatureSets() as $featureSet) {
+        foreach ($featureArea->getFeatureSets() as $featureSet) {
             $featureSets .= $this->renderFeatureSet($featureSet);
             $featureOwners .= $this->renderFeatureOwner($featureSet);
         }
 
-        $featureArea = str_replace("%%WIDTH%%", self::FS_WIDTH * count($inFeatureArea->getFeatureSets()), Templates::FEATURE_AREA_TEMPLATE);
-        $featureArea = str_replace("%%TITLE%%", $inFeatureArea->getName(), $featureArea);
-        $featureArea = str_replace("%%FEATURE_SET_OWNERS%%", $featureOwners, $featureArea);
-        $featureArea = str_replace("%%FEATURE_SETS%%", $featureSets, $featureArea);
+        $renderedFeatureArea = str_replace("%%WIDTH%%", self::FS_WIDTH * count($featureArea->getFeatureSets()), Templates::FEATURE_AREA_TEMPLATE);
+        $renderedFeatureArea = str_replace("%%TITLE%%", $featureArea->getName(), $renderedFeatureArea);
+        $renderedFeatureArea = str_replace("%%FEATURE_SET_OWNERS%%", $featureOwners, $renderedFeatureArea);
+        $renderedFeatureArea = str_replace("%%FEATURE_SETS%%", $featureSets, $renderedFeatureArea);
 
-        return $featureArea;
+        return $renderedFeatureArea;
     }
 
-    public function renderFeatureSet(FeatureSet $inFeatureSet, $inPaddingLeft = 0, $inPaddingRight = 0)
+    public function renderFeatureSet(FeatureSet $featureSet, $paddingLeft = 0, $paddingRight = 0)
     {
-        $fs = str_replace("%%PADDING_LEFT%%", $inPaddingLeft, Templates::FEATURE_SET_TEMPLATE);
-        $fs = str_replace("%%PADDING_RIGHT%%", $inPaddingRight, $fs);
-        $fs = str_replace("%%TITLE%%", $inFeatureSet->getName(), $fs);
-        $fs = str_replace("%%NUM_FEATURES%%", $inFeatureSet->getNumberOfFeatures(), $fs);
-        $fs = str_replace("%%PERCENT_COMPLETE%%", $inFeatureSet->getPercentCompleted(), $fs);
-        $fs = str_replace("%%DUE_DATE%%", $inFeatureSet->getDueDate(), $fs);
+        $fs = str_replace("%%PADDING_LEFT%%", $paddingLeft, Templates::FEATURE_SET_TEMPLATE);
+        $fs = str_replace("%%PADDING_RIGHT%%", $paddingRight, $fs);
+        $fs = str_replace("%%TITLE%%", $featureSet->getName(), $fs);
+        $fs = str_replace("%%NUM_FEATURES%%", $featureSet->getNumberOfFeatures(), $fs);
+        $fs = str_replace("%%PERCENT_COMPLETE%%", $featureSet->getPercentCompleted(), $fs);
+        $fs = str_replace("%%DUE_DATE%%", $featureSet->getDueDate(), $fs);
 
-        $backgroundStyle = $this->determineFeatureSetBackgroundStyle($inFeatureSet);
+        $backgroundStyle = $this->determineFeatureSetBackgroundStyle($featureSet);
         $fs = str_replace("%%BG_STYLE%%", $backgroundStyle, $fs);
 
         return $fs;
     }
 
-    protected function determineFeatureSetBackgroundStyle($inFeatureSet)
+    protected function determineFeatureSetBackgroundStyle($featureSet)
     {
         $now = new DateTime();
 
-        if ($inFeatureSet->isCompleted()) {
+        if ($featureSet->isCompleted()) {
             return "completed";
         }
 
-        if ($now > $inFeatureSet->getRawDueDate()) {
+        if ($now > $featureSet->getRawDueDate()) {
             return "warning";
         }
 
-        if ($inFeatureSet->isInProgress()) {
+        if ($featureSet->isInProgress()) {
             return "in_progress";
         }
 
         return "not_started";
     }
 
-    public function renderFeatureOwner(FeatureSet $inFeatureSet, $inPaddingLeft = 0, $inPaddingRight = 0)
+    public function renderFeatureOwner(FeatureSet $featureSet, $paddingLeft = 0, $paddingRight = 0)
     {
-        $owner = str_replace("%%PADDING_LEFT%%", $inPaddingLeft, Templates::FEATURE_SET_OWNER_TEMPLATE);
-        $owner = str_replace("%%PADDING_RIGHT%%", $inPaddingRight, $owner);
-        $owner = str_replace("%%OWNER%%", $inFeatureSet->getOwner(), $owner);
+        $owner = str_replace("%%PADDING_LEFT%%", $paddingLeft, Templates::FEATURE_SET_OWNER_TEMPLATE);
+        $owner = str_replace("%%PADDING_RIGHT%%", $paddingRight, $owner);
+        $owner = str_replace("%%OWNER%%", $featureSet->getOwner(), $owner);
 
         return $owner;
     }
 
-    protected function packRows($inFeatureAreas)
+    protected function packRows($featureAreas)
     {
         $bins = array();
 
-        foreach($inFeatureAreas as $area)
+        foreach($featureAreas as $area)
         {
             $placed = false;
             foreach ($bins as &$bin)
@@ -147,10 +147,10 @@ class HtmlRenderer extends AbstractRenderer
         return $bins;
     }
 
-    protected function sumBin(array $inBin)
+    protected function sumBin(array $bin)
     {
         $sum = 0;
-        foreach ($inBin as $featureArea)
+        foreach ($bin as $featureArea)
         {
             $sum += $featureArea->getNumberOfFeatureSets();
         }

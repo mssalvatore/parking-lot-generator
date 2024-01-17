@@ -9,20 +9,20 @@ class FeatureArea
     protected $mName;
     protected $mFeatureSets;
 
-    public function __construct($inName, array $inFeatureSets)
+    public function __construct($name, array $featureSets)
     {
-        if (empty($inName))
+        if (empty($name))
         {
             throw new InvalidFeatureAreaException("A Feature Area may not have an empty (blank) name");
         }
 
-        if (empty($inFeatureSets))
+        if (empty($featureSets))
         {
             throw new InvalidFeatureAreaException("A Feature Area must have at least one Feature Set");
         }
 
-        $this->mName = $inName;
-        $this->mFeatureSets = $inFeatureSets;
+        $this->mName = $name;
+        $this->mFeatureSets = $featureSets;
     }
 
     public function getName()

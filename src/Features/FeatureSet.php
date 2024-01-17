@@ -14,21 +14,21 @@ class FeatureSet
     protected $mOwner;
     protected $mIsInProgress;
 
-    public function __construct($inName, array $inFeatures, $inOwner)
+    public function __construct($name, array $features, $owner)
     {
-        if (empty($inName))
+        if (empty($name))
         {
             throw new InvalidFeatureSetException("A Feature Set may not have an empty (blank) name");
         }
 
-        if (empty($inFeatures))
+        if (empty($features))
         {
             throw new InvalidFeatureSetException("A Feature Set must have at least one Feature");
         }
 
-        $this->mName = $inName;
-        $this->mFeatures = $inFeatures;
-        $this->mOwner = $inOwner;
+        $this->mName = $name;
+        $this->mFeatures = $features;
+        $this->mOwner = $owner;
 
         $this->mPercentCompleted = $this->calculatePercentCompleted();
         $this->mRawDueDate = $this->computeDueDate();
@@ -63,12 +63,12 @@ class FeatureSet
     protected function computeDueDate()
     {
         $copiedFeatures = $this->mFeatures;
-        usort($copiedFeatures, function($inLeft, $inRight) {
-            if ($inLeft->getDueDate() == $inRight->getDueDate()) {
+        usort($copiedFeatures, function($left, $right) {
+            if ($left->getDueDate() == $right->getDueDate()) {
                 return 0;
             }
 
-            return $inLeft->getDueDate() > $inRight->getDueDate() ? -1 : 1;
+            return $left->getDueDate() > $right->getDueDate() ? -1 : 1;
         });
 
         return $copiedFeatures[0]->getDueDate();
