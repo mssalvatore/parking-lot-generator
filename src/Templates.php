@@ -37,7 +37,7 @@ const FEATURE_AREA_TEMPLATE = <<<FAT
                             <td>
                                 <table>
                                     <tr>
-                                        %%FEATURE_SET_OWNERS%%
+                                       %%FEATURE_SET_OWNERS%%
                                     </tr>
                                     <tr>
                                         %%FEATURE_SETS%%
@@ -50,7 +50,7 @@ const FEATURE_AREA_TEMPLATE = <<<FAT
 FAT;
 
 const FEATURE_SET_OWNER_TEMPLATE = <<<FOT
-                                        <td class="ralign owner">%%OWNER%%</td>
+                                        <td class="ralign owner">%%OWNER%%</td>\n
 FOT;
 
 const FEATURE_SET_TEMPLATE = <<<FST
@@ -74,7 +74,7 @@ const FEATURE_SET_TEMPLATE = <<<FST
                                                     <td class="progress_date">%%DUE_DATE%%</td>
                                                 </tr>
                                             </table>
-                                        </td>
+                                        </td>\n
 FST;
 
 }
