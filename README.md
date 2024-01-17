@@ -21,7 +21,7 @@ path
 ## Parking Lot Diagram
 A parking lot diagram is a high-level visualization of a project status.
 Traditionally, parking lot diagrams represent Feature Areas, Feature Sets, and
-Features. This may be analogous to a hierarchy of Epics, Features, and Stories.  
+Features. This may be analogous to a hierarchy of Epics, Features, and Stories.
 
 ### Example Parking Lot Diagram
 ![example](./assets/images/example.png)
@@ -37,8 +37,8 @@ Makefile assumes that the `box` and `composer` executables are in your `PATH`
 ### Configuration
 
 The configuration file describes the feature areas, feature sets, and features
-from which the parking lot diagram will be built. 
- 
+from which the parking lot diagram will be built.
+
 **Feature Areas** - Feature areas consist of a unique name and an array of
 feature sets.
 
@@ -111,7 +111,7 @@ Output: Outputs an html file that contains a ParkingLot Diagram
 You will need to copy `assets/css/style.css` to the same destination directory
 as your output html.
 
-## Known issues and shortcomings 
+## Known issues and shortcomings
 
 * I'm not all that great with CSS. The generated report could probably use a
   face lift.

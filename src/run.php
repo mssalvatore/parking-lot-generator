@@ -27,7 +27,7 @@ function printUsage($inErrorMessage = NULL)
     echo "\n";
     echo "Output: Outputs an html file that contains a ParkingLot Diagram\n";
     echo "\n";
-} 
+}
 
 function printVersion()
 {
