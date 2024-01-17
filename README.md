@@ -27,10 +27,10 @@ Features. This may be analogous to a hierarchy of Epics, Features, and Stories.
 ![example](./assets/images/example.png)
 
 ## Building
-To build, run `composer install` in the top level directory. Then run `make`.
-The executable will be built to `bin/ParkingLotGenerator.phar`. Again, the make
-file assumes that the box executible is in your `PATH` (and named `box`, not
-`box.phar`).
+To build, simply run `make` in the top level directory.
+The executable will be built to `bin/ParkingLotGenerator.phar`. Again, the
+Makefile assumes that the `box` and `composer` executables are in your `PATH`
+(and named e.g. `box`, not `box.phar`).
 
 ## Usage
 
