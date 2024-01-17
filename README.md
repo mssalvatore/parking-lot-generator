@@ -27,10 +27,10 @@ Features. This may be analogous to a hierarchy of Epics, Features, and Stories.
 ![example](./assets/images/example.png)
 
 ## Building
-To build, run 'composer install' in the top level directory. Then run 'make'.
-The executable will be built to bin/ParkingLotGenerator.phar. Again, the make
-file assumes that the box executible is in your PATH (and named 'box', not
-box.phar).
+To build, run `composer install` in the top level directory. Then run `make`.
+The executable will be built to `bin/ParkingLotGenerator.phar`. Again, the make
+file assumes that the box executible is in your `PATH` (and named `box`, not
+`box.phar`).
 
 ## Usage
 
@@ -108,8 +108,8 @@ Output: Outputs an html file that contains a ParkingLot Diagram
 `php bin/ParkingLotGenerator.phar --project-name "Example Project" --input "$HOME/example.json" --output "/var/www/html/parking_lot.html"`
 
 #### Note
-You will need to copy assets/css/style.css to the same destination directory as
-your output html.
+You will need to copy `assets/css/style.css` to the same destination directory
+as your output html.
 
 ## Known issues and shortcomings 
 
@@ -117,7 +117,7 @@ your output html.
   face lift.
     * No attempt has been made to ensure a consistent look and feel across
       different browsers.
-* The style.css must be manually copied to the destination directory.
+* The `style.css` must be manually copied to the destination directory.
 * While there is some input validation, it's not as robust as it could be. The
   input config file could be better validated.
     * <span style="color:red">WARNING</span>: The Parking Lot Generator is
