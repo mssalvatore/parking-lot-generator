@@ -4,8 +4,6 @@ namespace ParkingLot;
 
 require_once(__DIR__ . "/../vendor/autoload.php");
 
-use SevOne\Logging as Logging;
-
 function printUsage($inErrorMessage = NULL)
 {
     if (!is_null($inErrorMessage)) {
