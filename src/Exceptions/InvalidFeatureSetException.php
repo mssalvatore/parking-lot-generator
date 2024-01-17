@@ -5,4 +5,3 @@ class InvalidFeatureSetException extends \Exception
 { }
 
 ?>
-

@@ -5,4 +5,3 @@ class InvalidFeatureAreaException extends \Exception
 { }
 
 ?>
-
