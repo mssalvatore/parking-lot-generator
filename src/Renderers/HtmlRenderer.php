@@ -8,6 +8,10 @@ use \ParkingLot\Features\FeatureSet as FeatureSet;
 use \ParkingLot\Features\FeatureArea as FeatureArea;
 use \ParkingLot\Templates as Templates;
 
+function sanitize_xss($string) {
+    return htmlspecialchars(strip_tags($string), ENT_QUOTES, 'UTF-8');
+}
+
 class HtmlRenderer extends AbstractRenderer
 {
     const FS_WIDTH = 125;
@@ -74,7 +78,7 @@ class HtmlRenderer extends AbstractRenderer
         }
 
         $renderedFeatureArea = str_replace("%%WIDTH%%", self::FS_WIDTH * count($featureArea->getFeatureSets()), Templates::FEATURE_AREA_TEMPLATE);
-        $renderedFeatureArea = str_replace("%%TITLE%%", $featureArea->getName(), $renderedFeatureArea);
+        $renderedFeatureArea = str_replace("%%TITLE%%", sanitize_xss($featureArea->getName()), $renderedFeatureArea);
         $renderedFeatureArea = str_replace("%%FEATURE_SET_OWNERS%%", $featureOwners, $renderedFeatureArea);
         $renderedFeatureArea = str_replace("%%FEATURE_SETS%%", $featureSets, $renderedFeatureArea);
 
@@ -85,10 +89,10 @@ class HtmlRenderer extends AbstractRenderer
     {
         $fs = str_replace("%%PADDING_LEFT%%", $paddingLeft, Templates::FEATURE_SET_TEMPLATE);
         $fs = str_replace("%%PADDING_RIGHT%%", $paddingRight, $fs);
-        $fs = str_replace("%%TITLE%%", $featureSet->getName(), $fs);
-        $fs = str_replace("%%NUM_FEATURES%%", $featureSet->getNumberOfFeatures(), $fs);
-        $fs = str_replace("%%PERCENT_COMPLETE%%", $featureSet->getPercentCompleted(), $fs);
-        $fs = str_replace("%%DUE_DATE%%", $featureSet->getDueDate(), $fs);
+        $fs = str_replace("%%TITLE%%", sanitize_xss($featureSet->getName()), $fs);
+        $fs = str_replace("%%NUM_FEATURES%%", sanitize_xss($featureSet->getNumberOfFeatures()), $fs);
+        $fs = str_replace("%%PERCENT_COMPLETE%%", sanitize_xss($featureSet->getPercentCompleted()), $fs);
+        $fs = str_replace("%%DUE_DATE%%", sanitize_xss($featureSet->getDueDate()), $fs);
 
         $backgroundStyle = $this->determineFeatureSetBackgroundStyle($featureSet);
         $fs = str_replace("%%BG_STYLE%%", $backgroundStyle, $fs);
@@ -119,7 +123,7 @@ class HtmlRenderer extends AbstractRenderer
     {
         $owner = str_replace("%%PADDING_LEFT%%", $paddingLeft, Templates::FEATURE_SET_OWNER_TEMPLATE);
         $owner = str_replace("%%PADDING_RIGHT%%", $paddingRight, $owner);
-        $owner = str_replace("%%OWNER%%", $featureSet->getOwner(), $owner);
+        $owner = str_replace("%%OWNER%%", sanitize_xss($featureSet->getOwner()), $owner);
 
         return $owner;
     }

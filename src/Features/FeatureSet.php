@@ -30,6 +30,7 @@ class FeatureSet
         $this->mFeatures = $features;
         $this->mOwner = $owner;
 
+        # Add some type checking
         $this->mPercentCompleted = $this->calculatePercentCompleted();
         $this->mRawDueDate = $this->computeDueDate();
         $this->mDueDate = $this->mRawDueDate->format('M') . " " . $this->mRawDueDate->format('Y');

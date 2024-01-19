@@ -22,6 +22,7 @@ class Feature
         }
 
         $this->mName = $name;
+        # Add some kind of type checking
         $this->mDueDate = $dueDate;
         $this->mIsCompleted = $isCompleted;
         $this->mIsInProgress = $isInProgress;
