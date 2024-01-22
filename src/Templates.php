@@ -9,6 +9,7 @@ const FRAME = <<<FRAME
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="./style.css">
+        <link rel="stylesheet" href="./css/bootstrap.css">
     </head>
     <body>
         <header class="title">%%PROJECT_NAME%% Parking Lot Diagram</header>
@@ -60,7 +61,7 @@ const FEATURE_SET_TEMPLATE = <<<FST
                                                     <td class="feature_set %%BG_STYLE%%">
                                                         <div class="td_feature_set">
                                                             <div class="feature_set_name">%%TITLE%%</div>
-                                                            <div class="number_of_features">(%%NUM_FEATURES%%)</div>
+                                                            <div class="number_of_features">%%NUM_FEATURES%%</div>
                                                             <div class="percent_complete">%%PERCENT_COMPLETE%%%</div>
                                                         </div>
                                                     </td>

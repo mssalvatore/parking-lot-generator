@@ -1,15 +1,14 @@
 html {
-  background-color: #DCE0E8;
   font-family: "OpenSans";
 }
 header.title {
     text-align: center;
-    font-size: 3em;
+    font-size: 2.3em;
     font-weight: bold;
 }
 header.time {
     text-align: center;
-    font-size: 2em;
+    font-size: 1.5em;
     font-weight: bold;
 }
 table {
@@ -20,13 +19,13 @@ table {
 table.boxed {
     border: 2px solid black;
 	margin: 5 5 5 5;
-	background-color: #F0EAD6;
+	background-color: #e9ecef;
 }
 
 table.feature_area {
     border: 2px solid black;
 	margin: 5 5 5 5;
-	background-color: #E7DFDD;
+	background-color: rgb(144 146 148);
 	min-height: 290px;
 }
 
@@ -39,13 +38,15 @@ td, th {
 
 th.feature_area {
     border: none;
+    font-size: 1.1em;
     text-align: center;
 	background-color: #3C3B3B;
-	color: #FFFFFF;
 	white-space: nowrap;
+    padding-bottom: 5px;
 }
 table.feature_set {
     border: 2px solid black;
+    color: #212529;
     border-spacing: 0px 0px;
 	margin: 15 15 15 15;
     text-align: center;
@@ -68,23 +69,27 @@ td.progress_bar {
 }
 
 td.in_progress {
-    background-color: #209EC3;
+    background-color: #0a58ca;
+    color: white;
 }
 
 td.completed {
-    background-color: #92CB05
+    background-color: #146c43;
+    color: white;
 }
 
 td.not_started {
-    background-color: #EFEFEF
+    background-color: #ced4da;
 }
 
 td.progress_date {
-    background-color: #EFEFEF;
+    background-color: #2d2d2d;
+    color:white;
 }
 
 td.warning {
-    background-color: #F95248;
+    background-color: #b02a37;
+    color: white;
 }
 
 td.progress_bar_completed {
@@ -109,12 +114,15 @@ div.td_feature_set {
 
 div.feature_set_name {
     height: 50%;
-	font-size: 14px;
+    font-size: 15px;
+    font-weight: 600;
+
 }
 
 div.number_of_features {
     height: 35%;
 	font-weight: bold;
+    font-size: 25px;
 }
 
 div.percent_complete {
