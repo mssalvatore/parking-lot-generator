@@ -9,7 +9,7 @@ const FRAME = <<<FRAME
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="./style.css">
-        <link rel="stylesheet" href="./css/bootstrap.css">
+        <link rel="stylesheet" href="./bootstrap.css">
     </head>
     <body>
         <header class="title">%%PROJECT_NAME%% Parking Lot Diagram</header>
