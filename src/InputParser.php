@@ -28,9 +28,9 @@ class InputParser
     protected static function buildFeatureAreasFromDecodedJson($inFeatureAreasDecoded)
     {
         $featureAreas = array();
-        foreach ($inFeatureAreasDecoded['featureAreas'] as $featureArea) {
+        foreach ($inFeatureAreasDecoded['feature_areas'] as $featureArea) {
             $featureAreaName = $featureArea['name'];
-            $featureSets = static::buildFeatureSetsFromDecodedJson($featureArea['featureSets']);
+            $featureSets = static::buildFeatureSetsFromDecodedJson($featureArea['feature_sets']);
 
             $featureAreas[] = new FeatureArea($featureAreaName, $featureSets);
         }
@@ -57,11 +57,11 @@ class InputParser
         $features = array();
         foreach ($inFeatures as $feature) {
 
-            if (empty($feature['dueDate'])) {
+            if (empty($feature['due_date'])) {
                 throw new InvalidFeatureException("Due date my not be empty");
             }
             $featureName = $feature['name'];
-            $dueDate = new DateTime($feature['dueDate']);
+            $dueDate = new DateTime($feature['due_date']);
             $status = $feature['status'];
             $isCompleted = $status == "Completed";
             $inProgress = $status == "In Progress";

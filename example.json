@@ -1,20 +1,20 @@
 {
-    "featureAreas": [
+    "feature_areas": [
         {
             "name": "Authentication Management",
-            "featureSets": [
+            "feature_sets": [
                 {
                     "name": "Granting Access",
                     "owner": "ZB",
                     "features": [
                         {
                             "name": "ignore",
-                            "dueDate": "Jun 2024",
+                            "due_date": "Jun 2024",
                             "status": "Open"
                         },
                         {
                             "name": "ignore1",
-                            "dueDate": "Jun 2024",
+                            "due_date": "Jun 2024",
                             "status": "Open"
                         }
                     ]
@@ -25,17 +25,17 @@
                     "features": [
                         {
                             "name": "Handle Authentication Post from VEC Servers",
-                            "dueDate": "Dec 2023",
+                            "due_date": "Dec 2023",
                             "status": "Open"
                         },
                         {
                             "name": "Handle access for VES Customers AD users",
-                            "dueDate": "Dec 2023",
+                            "due_date": "Dec 2023",
                             "status": "Open"
                         },
                         {
                             "name": "Handle access for VES Employees AD users",
-                            "dueDate": "Dec 2023",
+                            "due_date": "Dec 2023",
                             "status": "Open"
                         }
                     ]
@@ -46,22 +46,22 @@
                     "features": [
                         {
                             "name": "Provision user in SevOne Clusters",
-                            "dueDate": "Jun 2024",
+                            "due_date": "Jun 2024",
                             "status": "Open"
                         },
                         {
                             "name": "Provision user in in Retina",
-                            "dueDate": "Jun 2024",
+                            "due_date": "Jun 2024",
                             "status": "Open"
                         },
                         {
                             "name": "Verify user permissions in Retina",
-                            "dueDate": "Jun 2024",
+                            "due_date": "Jun 2024",
                             "status": "Open"
                         },
                         {
                             "name": "Verify user permissions in SevOne Clusters",
-                            "dueDate": "Jun 2024",
+                            "due_date": "Jun 2024",
                             "status": "Open"
                         }
                     ]
@@ -70,14 +70,14 @@
         },
         {
             "name": "Sales Management",
-            "featureSets": [
+            "feature_sets": [
                 {
                     "name": "Completing a Sale",
                     "owner": "MM",
                     "features": [
                         {
                             "name": "asdfignore",
-                            "dueDate": "Feb 2024",
+                            "due_date": "Feb 2024",
                             "status": "Open"
                         }
                     ]
@@ -88,42 +88,42 @@
                     "features": [
                         {
                             "name": "dhalignore",
-                            "dueDate": "Apr 2024",
+                            "due_date": "Apr 2024",
                             "status": "Open"
                         },
                         {
                             "name": "i0gnore",
-                            "dueDate": "Apr 2024",
+                            "due_date": "Apr 2024",
                             "status": "Open"
                         },
                         {
                             "name": "aldofignore",
-                            "dueDate": "Apr 2024",
+                            "due_date": "Apr 2024",
                             "status": "Open"
                         },
                         {
                             "name": "sdfsiignore",
-                            "dueDate": "Apr 2024",
+                            "due_date": "Apr 2024",
                             "status": "Open"
                         },
                         {
                             "name": "sdgignore",
-                            "dueDate": "Apr 2024",
+                            "due_date": "Apr 2024",
                             "status": "Open"
                         },
                         {
                             "name": "foa3ignore",
-                            "dueDate": "Apr 2024",
+                            "due_date": "Apr 2024",
                             "status": "Open"
                         },
                         {
                             "name": "023ignore",
-                            "dueDate": "Apr 2024",
+                            "due_date": "Apr 2024",
                             "status": "Open"
                         },
                         {
                             "name": "kdf9ignore",
-                            "dueDate": "Apr 2024",
+                            "due_date": "Apr 2024",
                             "status": "Open"
                         }
                     ]
@@ -134,17 +134,17 @@
                     "features": [
                         {
                             "name": "3l23vignore",
-                            "dueDate": "Mar 2024",
+                            "due_date": "Mar 2024",
                             "status": "Open"
                         },
                         {
                             "name": "8923fignore",
-                            "dueDate": "Mar 2024",
+                            "due_date": "Mar 2024",
                             "status": "In Progress"
                         },
                         {
                             "name": "sdf02ignore",
-                            "dueDate": "Mar 2024",
+                            "due_date": "Mar 2024",
                             "status": "Open"
                         }
                     ]
@@ -155,17 +155,17 @@
                     "features": [
                         {
                             "name": "figure1",
-                            "dueDate": "Mar 2024",
+                            "due_date": "Mar 2024",
                             "status": "Completed"
                         },
                         {
                             "name": "0234ignore",
-                            "dueDate": "Mar 2024",
+                            "due_date": "Mar 2024",
                             "status": "Completed"
                         },
                         {
                             "name": "slo032ignore",
-                            "dueDate": "Mar 2024",
+                            "due_date": "Mar 2024",
                             "status": "Completed"
                         }
                     ]
@@ -176,17 +176,17 @@
                     "features": [
                         {
                             "name": "ignore9s",
-                            "dueDate": "Mar 2024",
+                            "due_date": "Mar 2024",
                             "status": "Open"
                         },
                         {
                             "name": "asdf234lignore",
-                            "dueDate": "Mar 2024",
+                            "due_date": "Mar 2024",
                             "status": "Open"
                         },
                         {
                             "name": "igno9234re",
-                            "dueDate": "Mar 2024",
+                            "due_date": "Mar 2024",
                             "status": "Open"
                         }
                     ]
@@ -195,19 +195,19 @@
         },
         {
             "name": "Establish Product Catalog",
-            "featureSets": [
+            "feature_sets": [
                 {
                     "name": "Establish Autodesign Mapping",
                     "owner": "MM",
                     "features": [
                         {
                             "name": "asdfignore",
-                            "dueDate": "Feb 2024",
+                            "due_date": "Feb 2024",
                             "status": "Open"
                         },
                         {
                             "name": "a11sdfignore",
-                            "dueDate": "Feb 2024",
+                            "due_date": "Feb 2024",
                             "status": "Open"
                         }
                     ]
@@ -218,42 +218,42 @@
                     "features": [
                         {
                             "name": "dhalignore",
-                            "dueDate": "Apr 2024",
+                            "due_date": "Apr 2024",
                             "status": "Open"
                         },
                         {
                             "name": "i0gnore",
-                            "dueDate": "Apr 2024",
+                            "due_date": "Apr 2024",
                             "status": "Open"
                         },
                         {
                             "name": "aldofignore",
-                            "dueDate": "Apr 2024",
+                            "due_date": "Apr 2024",
                             "status": "Open"
                         },
                         {
                             "name": "sdfsiignore",
-                            "dueDate": "Apr 2024",
+                            "due_date": "Apr 2024",
                             "status": "Open"
                         },
                         {
                             "name": "sdgignore",
-                            "dueDate": "Apr 2024",
+                            "due_date": "Apr 2024",
                             "status": "Open"
                         },
                         {
                             "name": "foa3ignore",
-                            "dueDate": "Apr 2024",
+                            "due_date": "Apr 2024",
                             "status": "Open"
                         },
                         {
                             "name": "023ignore",
-                            "dueDate": "Apr 2024",
+                            "due_date": "Apr 2024",
                             "status": "Completed"
                         },
                         {
                             "name": "kdf9ignore",
-                            "dueDate": "Apr 2024",
+                            "due_date": "Apr 2024",
                             "status": "Completed"
                         }
                     ]
@@ -264,17 +264,17 @@
                     "features": [
                         {
                             "name": "3l23vignore",
-                            "dueDate": "Mar 2024",
+                            "due_date": "Mar 2024",
                             "status": "Open"
                         },
                         {
                             "name": "8923fignore",
-                            "dueDate": "Mar 2024",
+                            "due_date": "Mar 2024",
                             "status": "Open"
                         },
                         {
                             "name": "sdf02ignore",
-                            "dueDate": "Mar 2024",
+                            "due_date": "Mar 2024",
                             "status": "Open"
                         }
                     ]
@@ -285,17 +285,17 @@
                     "features": [
                         {
                             "name": "figure1",
-                            "dueDate": "Mar 2024",
+                            "due_date": "Mar 2024",
                             "status": "Open"
                         },
                         {
                             "name": "0234ignore",
-                            "dueDate": "Jul 2024",
+                            "due_date": "Jul 2024",
                             "status": "Open"
                         },
                         {
                             "name": "slo032ignore",
-                            "dueDate": "Mar 2024",
+                            "due_date": "Mar 2024",
                             "status": "Open"
                         }
                     ]
@@ -306,17 +306,17 @@
                     "features": [
                         {
                             "name": "ignore9s",
-                            "dueDate": "Mar 2024",
+                            "due_date": "Mar 2024",
                             "status": "Completed"
                         },
                         {
                             "name": "asdf234lignore",
-                            "dueDate": "Mar 2024",
+                            "due_date": "Mar 2024",
                             "status": "Completed"
                         },
                         {
                             "name": "igno9234re",
-                            "dueDate": "May 2024",
+                            "due_date": "May 2024",
                             "status": "Completed"
                         }
                     ]
@@ -325,14 +325,14 @@
         },
         {
             "name": "Inventory Management",
-            "featureSets": [
+            "feature_sets": [
                 {
                     "name": "Ordering A Stock",
                     "owner": "MM",
                     "features": [
                         {
                             "name": "asdfignore",
-                            "dueDate": "Feb 2024",
+                            "due_date": "Feb 2024",
                             "status": "Open"
                         }
                     ]
@@ -343,42 +343,42 @@
                     "features": [
                         {
                             "name": "dhalignore",
-                            "dueDate": "Apr 2024",
+                            "due_date": "Apr 2024",
                             "status": "Open"
                         },
                         {
                             "name": "i0gnore",
-                            "dueDate": "Apr 2024",
+                            "due_date": "Apr 2024",
                             "status": "Open"
                         },
                         {
                             "name": "aldofignore",
-                            "dueDate": "Apr 2024",
+                            "due_date": "Apr 2024",
                             "status": "Open"
                         },
                         {
                             "name": "sdfsiignore",
-                            "dueDate": "Apr 2024",
+                            "due_date": "Apr 2024",
                             "status": "Open"
                         },
                         {
                             "name": "sdgignore",
-                            "dueDate": "Apr 2024",
+                            "due_date": "Apr 2024",
                             "status": "Open"
                         },
                         {
                             "name": "foa3ignore",
-                            "dueDate": "Apr 2024",
+                            "due_date": "Apr 2024",
                             "status": "Open"
                         },
                         {
                             "name": "023ignore",
-                            "dueDate": "Apr 2024",
+                            "due_date": "Apr 2024",
                             "status": "Open"
                         },
                         {
                             "name": "kdf9ignore",
-                            "dueDate": "Apr 2024",
+                            "due_date": "Apr 2024",
                             "status": "Open"
                         }
                     ]
@@ -389,17 +389,17 @@
                     "features": [
                         {
                             "name": "3l23vignore",
-                            "dueDate": "Mar 2024",
+                            "due_date": "Mar 2024",
                             "status": "Open"
                         },
                         {
                             "name": "8923fignore",
-                            "dueDate": "Mar 2024",
+                            "due_date": "Mar 2024",
                             "status": "Open"
                         },
                         {
                             "name": "sdf02ignore",
-                            "dueDate": "Mar 2024",
+                            "due_date": "Mar 2024",
                             "status": "Open"
                         }
                     ]
@@ -410,17 +410,17 @@
                     "features": [
                         {
                             "name": "figure1",
-                            "dueDate": "Mar 2024",
+                            "due_date": "Mar 2024",
                             "status": "Open"
                         },
                         {
                             "name": "0234ignore",
-                            "dueDate": "Mar 2024",
+                            "due_date": "Mar 2024",
                             "status": "Open"
                         },
                         {
                             "name": "slo032ignore",
-                            "dueDate": "Mar 2024",
+                            "due_date": "Mar 2024",
                             "status": "Open"
                         }
                     ]
@@ -429,34 +429,34 @@
         },
         {
             "name": "Intra-System Pathing",
-            "featureSets": [
+            "feature_sets": [
                 {
                     "name": "Autodesign Transport Shortfall",
                     "owner": "DM",
                     "features": [
                         {
                             "name": "ig9234anasdflnore",
-                            "dueDate": "Jun 2024",
+                            "due_date": "Jun 2024",
                             "status": "In Progress"
                         },
                         {
                             "name": "a0a0a0a0a0a0a0a0a0ignore",
-                            "dueDate": "Apr 2024",
+                            "due_date": "Apr 2024",
                             "status": "Completed"
                         },
                         {
                             "name": "9w8erignore",
-                            "dueDate": "Apr 2024",
+                            "due_date": "Apr 2024",
                             "status": "Completed"
                         },
                         {
                             "name": "w9342ignore",
-                            "dueDate": "Jan 1970",
+                            "due_date": "Jan 1970",
                             "status": "Completed"
                         },
                         {
                             "name": "werwerwerwerwerwerwerwerwerignore",
-                            "dueDate": "Apr 2024",
+                            "due_date": "Apr 2024",
                             "status": "In Progress"
                         }
                     ]
@@ -467,22 +467,22 @@
                     "features": [
                         {
                             "name": "werignore",
-                            "dueDate": "feb 2024",
+                            "due_date": "feb 2024",
                             "status": "In Progress"
                         },
                         {
                             "name": "lasdf0234ignore",
-                            "dueDate": "Jan 2024",
+                            "due_date": "Jan 2024",
                             "status": "In Progress"
                         },
                         {
                             "name": "ig9234nnore",
-                            "dueDate": "Jan 2024",
+                            "due_date": "Jan 2024",
                             "status": "Completed"
                         },
                         {
                             "name": "sdfignore",
-                            "dueDate": "Jan 2024",
+                            "due_date": "Jan 2024",
                             "status": "In Progress"
                         }
                     ]
@@ -493,17 +493,17 @@
                     "features": [
                         {
                             "name": "l23ignore",
-                            "dueDate": "Apr 2024",
+                            "due_date": "Apr 2024",
                             "status": "Completed"
                         },
                         {
                             "name": "kwer9ignore",
-                            "dueDate": "Apr 2024",
+                            "due_date": "Apr 2024",
                             "status": "Completed"
                         },
                         {
                             "name": "lwere34234e34234e34234e34234e34234e34234e34234e34234e34234e34234e34234e34234ignore",
-                            "dueDate": "Apr 2024",
+                            "due_date": "Apr 2024",
                             "status": "In Progress"
                         }
                     ]
@@ -512,34 +512,34 @@
         },
         {
             "name": "Franchise Management",
-            "featureSets": [
+            "feature_sets": [
                 {
                     "name": "Sales Reports",
                     "owner": "DM",
                     "features": [
                         {
                             "name": "ig9234anasdflnore",
-                            "dueDate": "Apr 2024",
+                            "due_date": "Apr 2024",
                             "status": "In Progress"
                         },
                         {
                             "name": "a0a0a0a0a0a0a0a0a0ignore",
-                            "dueDate": "Apr 2024",
+                            "due_date": "Apr 2024",
                             "status": "In Progress"
                         },
                         {
                             "name": "9w8erignore",
-                            "dueDate": "Apr 2024",
+                            "due_date": "Apr 2024",
                             "status": "In Progress"
                         },
                         {
                             "name": "w9342ignore",
-                            "dueDate": "Jan 1970",
+                            "due_date": "Jan 1970",
                             "status": "In Progress"
                         },
                         {
                             "name": "werwerwerwerwerwerwerwerwerignore",
-                            "dueDate": "Apr 2024",
+                            "due_date": "Apr 2024",
                             "status": "In Progress"
                         }
                     ]
@@ -550,22 +550,22 @@
                     "features": [
                         {
                             "name": "werignore",
-                            "dueDate": "Apr 2024",
+                            "due_date": "Apr 2024",
                             "status": "In Progress"
                         },
                         {
                             "name": "lasdf0234ignore",
-                            "dueDate": "Apr 2024",
+                            "due_date": "Apr 2024",
                             "status": "In Progress"
                         },
                         {
                             "name": "ig9234nnore",
-                            "dueDate": "Apr 2024",
+                            "due_date": "Apr 2024",
                             "status": "Completed"
                         },
                         {
                             "name": "sdfignore",
-                            "dueDate": "Apr 2024",
+                            "due_date": "Apr 2024",
                             "status": "In Progress"
                         }
                     ]
@@ -576,17 +576,17 @@
                     "features": [
                         {
                             "name": "l23ignore",
-                            "dueDate": "Apr 2024",
+                            "due_date": "Apr 2024",
                             "status": "Completed"
                         },
                         {
                             "name": "kwer9ignore",
-                            "dueDate": "Apr 2024",
+                            "due_date": "Apr 2024",
                             "status": "Completed"
                         },
                         {
                             "name": "lwere34234e34234e34234e34234e34234e34234e34234e34234e34234e34234e34234e34234ignore",
-                            "dueDate": "Apr 2024",
+                            "due_date": "Apr 2024",
                             "status": "In Progress"
                         }
                     ]
