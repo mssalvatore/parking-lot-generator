@@ -52,27 +52,27 @@ status may be "Open", "In Progress", or "Completed".
 #### Example
 ```json
 {
-    "feature areas": [
+    "feature_areas": [
         {
             "name": "Feature Area 1",
-            "featureSets": [
+            "feature_sets": [
                 {
                     "name: "Feature Set 1",
                     "owner": "MSS",
                     "features": [
                         {
                             "name": "feature 1",
-                            "dueDate": "01/07/2017",
+                            "due_date": "01/07/2017",
                             "status": "Open"
                         },
                         {
                             "name": "feature 2",
-                            "dueDate": "01/07/2017",
+                            "due_date": "01/07/2017",
                             "status": "In Progress"
                         },
                         {
                             "name": "feature 2",
-                            "dueDate": "01/07/2017",
+                            "due_date": "01/07/2017",
                             "status": "Completed"
                         }
                     ]
